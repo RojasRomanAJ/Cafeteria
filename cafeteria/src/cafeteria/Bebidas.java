@@ -1,6 +1,7 @@
 package cafeteria;
 
 import java.awt.*;
+
 import javax.swing.*;
 
 import java.awt.event.MouseEvent;
@@ -8,6 +9,7 @@ import java.awt.event.MouseEvent;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
 import java.awt.event.MouseAdapter;
 
 public class Bebidas extends JFrame {
@@ -81,6 +83,14 @@ public class Bebidas extends JFrame {
 		JButton btnAadirACuenta = new JButton("A\u00F1adir a cuenta");
 		btnAadirACuenta.setBounds(452, 56, 132, 23);
 		panel.add(btnAadirACuenta);
+		
+		btnAadirACuenta.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				Mesas.main(null);
+				setVisible(false);
+			}
+		});
 		
 		JButton btnQuitarDeCuenta = new JButton("Quitar de cuenta");
 		btnQuitarDeCuenta.setBounds(452, 90, 132, 23);

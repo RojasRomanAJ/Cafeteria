@@ -88,6 +88,14 @@ public class Helados extends JFrame {
 		btnAadirACuenta.setBounds(452, 56, 132, 23);
 		panel.add(btnAadirACuenta);
 		
+		btnAadirACuenta.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				Mesas.main(null);
+				setVisible(false);
+			}
+		});
+		
 		JButton btnQuitarDeCuenta = new JButton("Quitar de cuenta");
 		btnQuitarDeCuenta.setBounds(452, 90, 132, 23);
 		panel.add(btnQuitarDeCuenta);
