@@ -125,5 +125,9 @@ public class LogIn extends JFrame {
 		passwordField = new JPasswordField();
 		passwordField.setBounds(75, 196, 142, 20);
 		panel.add(passwordField);
+		
+		
 	}
 }
+
+

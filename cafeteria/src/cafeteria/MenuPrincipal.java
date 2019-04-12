@@ -3,8 +3,6 @@ package cafeteria;
 import java.awt.*;
 import javax.swing.*;
 
-import java.awt.BorderLayout;
-import java.awt.EventQueue;
 import java.awt.event.MouseAdapter;
 
 import javax.swing.JFrame;
@@ -43,6 +41,15 @@ public class MenuPrincipal extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setLayout(new BorderLayout(0, 0));
 		setContentPane(contentPane);
+		
+		Toolkit mipantalla = Toolkit.getDefaultToolkit();
+		
+		Dimension tamanoPantalla = mipantalla.getScreenSize();
+		
+		int alturaPantalla = tamanoPantalla.height;
+		int anchoPantalla = tamanoPantalla.width;
+		
+		setLocation(anchoPantalla/4, alturaPantalla/4);
 		
 		JPanel panel = new JPanel();
 		contentPane.add(panel, BorderLayout.CENTER);
@@ -95,3 +102,5 @@ public class MenuPrincipal extends JFrame {
 	}
 
 }
+
+	
