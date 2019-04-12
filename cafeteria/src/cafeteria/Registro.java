@@ -2,9 +2,6 @@ package cafeteria;
 
 import java.awt.*;
 
-import java.awt.BorderLayout;
-import java.awt.EventQueue;
-
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
@@ -47,6 +44,15 @@ public class Registro extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setLayout(new BorderLayout(0, 0));
 		setContentPane(contentPane);
+		
+		Toolkit mipantalla = Toolkit.getDefaultToolkit();
+		
+		Dimension tamanoPantalla = mipantalla.getScreenSize();
+		
+		int alturaPantalla = tamanoPantalla.height;
+		int anchoPantalla = tamanoPantalla.width;
+		
+		setLocation(anchoPantalla/4, alturaPantalla/4);
 		
 		JPanel panel = new JPanel();
 		contentPane.add(panel, BorderLayout.CENTER);

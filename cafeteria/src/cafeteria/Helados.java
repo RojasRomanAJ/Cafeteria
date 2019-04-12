@@ -1,8 +1,10 @@
 package cafeteria;
 
 import java.awt.BorderLayout;
+import java.awt.Dimension;
 import java.awt.EventQueue;
 import java.awt.Font;
+import java.awt.Toolkit;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
@@ -41,6 +43,15 @@ public class Helados extends JFrame {
 		setTitle("Helados");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 638, 395);
+		
+		Toolkit mipantalla = Toolkit.getDefaultToolkit();
+		
+		Dimension tamanoPantalla = mipantalla.getScreenSize();
+		
+		int alturaPantalla = tamanoPantalla.height;
+		int anchoPantalla = tamanoPantalla.width;
+		
+		setLocation(anchoPantalla/4, alturaPantalla/4);
 		
 		JPanel panel = new JPanel();
 		getContentPane().add(panel, BorderLayout.CENTER);
