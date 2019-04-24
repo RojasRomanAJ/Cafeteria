@@ -3,7 +3,10 @@ package lib;
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class Insert extends Conexion{
 
@@ -32,5 +35,41 @@ public class Insert extends Conexion{
 			e.printStackTrace();
 			return false;
 		}
+	}
+	
+	public int existeUsuario(String usr) {
+		
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+		Connection con = getConexion();
+		
+		String sql = "SELECT count(id) FROM usuarios WHERE usuarios = ?";
+		
+		try {
+			ps = con.prepareStatement(sql);
+			
+			ps.setString(1, usr);
+			rs = ps.executeQuery();
+			
+			if(rs.next()) {
+				return rs.getInt(1);
+			}
+			
+			return 1;
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return 1;
+		}
+	}
+
+	public boolean esEmail(String correo) {
+		
+		Pattern pattern = Pattern.compile("^[_A-Za-z0-9-\\+]+(\\.[A-Za-z0-9-]+)*@" + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$");
+		
+		Matcher matcher = pattern.matcher(correo);
+		
+		return matcher.find();
 	}
 }
