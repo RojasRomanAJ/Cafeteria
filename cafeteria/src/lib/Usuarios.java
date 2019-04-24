@@ -10,7 +10,6 @@ public class Usuarios {
 	private int id_tipo;
 	private String last_session;
 	private String nombre;
-	private int num_contacto;
 	
 	public String getApellidos() {
 		return apellidos;
@@ -48,24 +47,12 @@ public class Usuarios {
 	public void setId_tipo(int id_tipo) {
 		this.id_tipo = id_tipo;
 	}
-	public String getLast_session() {
-		return last_session;
-	}
-	public void setLast_session(String last_session) {
-		this.last_session = last_session;
-	}
+
 	public String getNombre() {
 		return nombre;
 	}
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
-	}
-	public int getNum_contacto() {
-		return num_contacto;
-	}
-	public void setNum_contacto(int Num_contacto) {
-		this.num_contacto = num_contacto;
-	}
-	
+	}	
 	
 }

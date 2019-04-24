@@ -19,7 +19,6 @@ public class Registro extends JFrame {
 	private JPanel contentPane;
 	private JTextField txtNombre;
 	private JTextField txtApellidos;
-	private JTextField txtContacto;
 	private JTextField txtDireccion;
 	private JTextField txtCorreo;
 	private JPasswordField passwordField;
@@ -67,26 +66,28 @@ public class Registro extends JFrame {
 		panel.setLayout(null);
 		
 		JLabel lblNombre = new JLabel("Nombre");
-		lblNombre.setBounds(54, 48, 46, 14);
+		lblNombre.setBounds(143, 49, 46, 14);
 		panel.add(lblNombre);
 		
 		JLabel lblNewLabel = new JLabel("Apellidos");
-		lblNewLabel.setBounds(54, 129, 104, 14);
+		lblNewLabel.setBounds(143, 130, 104, 14);
 		panel.add(lblNewLabel);
 		
-		JLabel lblNumeroContacto = new JLabel("Numero Contacto");
-		lblNumeroContacto.setBounds(54, 205, 149, 14);
-		panel.add(lblNumeroContacto);
-		
 		JLabel lblDireccion = new JLabel("Direccion");
-		lblDireccion.setBounds(275, 48, 56, 14);
+		lblDireccion.setBounds(364, 49, 56, 14);
 		panel.add(lblDireccion);
 		
 		JLabel lblCorreoElectronico = new JLabel("Correo Electronico");
-		lblCorreoElectronico.setBounds(275, 129, 158, 14);
+		lblCorreoElectronico.setBounds(364, 130, 158, 14);
 		panel.add(lblCorreoElectronico);
 		
 		JButton btnAtrs = new JButton("Atr\u00E1s");
+		btnAtrs.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				LogIn.main(null);
+				setVisible(false);
+			}
+		});
 		btnAtrs.setBounds(463, 346, 89, 23);
 		panel.add(btnAtrs);
 		
@@ -101,11 +102,10 @@ public class Registro extends JFrame {
 				
 				if(pass.equals(passCon)) {
 					
-					String nuevoPass = OcultarPass.sha1(pass);
+					String nuevoPass = OcultarPass.md5(pass);
 					
 					mod.setNombre(txtNombre.getText());
 					mod.setApellidos(txtApellidos.getText());
-					//mod.setNum_contacto(txtContacto.getText());
 					mod.setDireccion(txtDireccion.getText());
 					mod.setCorreo_electronico(txtCorreo.getText());
 					mod.setContraseña(nuevoPass);
@@ -127,44 +127,39 @@ public class Registro extends JFrame {
 		panel.add(btnGuardar);
 		
 		JLabel lblContrasea = new JLabel("Contrase\u00F1a");
-		lblContrasea.setBounds(275, 205, 94, 14);
+		lblContrasea.setBounds(143, 215, 94, 14);
 		panel.add(lblContrasea);
 		
 		txtNombre = new JTextField();
-		txtNombre.setBounds(54, 73, 149, 20);
+		txtNombre.setBounds(143, 74, 176, 20);
 		panel.add(txtNombre);
 		txtNombre.setColumns(10);
 		
 		txtApellidos = new JTextField();
-		txtApellidos.setBounds(54, 154, 149, 20);
+		txtApellidos.setBounds(143, 155, 176, 20);
 		panel.add(txtApellidos);
 		txtApellidos.setColumns(10);
 		
-		txtContacto = new JTextField();
-		txtContacto.setBounds(54, 230, 149, 20);
-		panel.add(txtContacto);
-		txtContacto.setColumns(10);
-		
 		txtDireccion = new JTextField();
-		txtDireccion.setBounds(275, 73, 176, 20);
+		txtDireccion.setBounds(364, 74, 176, 20);
 		panel.add(txtDireccion);
 		txtDireccion.setColumns(10);
 		
 		txtCorreo = new JTextField();
-		txtCorreo.setBounds(275, 154, 176, 20);
+		txtCorreo.setBounds(364, 155, 176, 20);
 		panel.add(txtCorreo);
 		txtCorreo.setColumns(10);
 		
 		passwordField = new JPasswordField();
-		passwordField.setBounds(275, 230, 176, 20);
+		passwordField.setBounds(143, 240, 176, 20);
 		panel.add(passwordField);
 		
 		JLabel lblConfirmarContrasea = new JLabel("Confirmar Contrase\u00F1a");
-		lblConfirmarContrasea.setBounds(275, 278, 176, 14);
+		lblConfirmarContrasea.setBounds(364, 215, 176, 14);
 		panel.add(lblConfirmarContrasea);
 		
 		passwordField_1 = new JPasswordField();
-		passwordField_1.setBounds(275, 303, 176, 20);
+		passwordField_1.setBounds(364, 240, 176, 20);
 		panel.add(passwordField_1);
 		
 	}
