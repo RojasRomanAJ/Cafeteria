@@ -41,20 +41,20 @@ public class MenuPrincipal extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setLayout(new BorderLayout(0, 0));
 		setContentPane(contentPane);
-		
+
 		Toolkit mipantalla = Toolkit.getDefaultToolkit();
-		
+
 		Dimension tamanoPantalla = mipantalla.getScreenSize();
-		
+
 		int alturaPantalla = tamanoPantalla.height;
 		int anchoPantalla = tamanoPantalla.width;
-		
-		setLocation(anchoPantalla/4, alturaPantalla/4);
-		
+
+		setLocation(anchoPantalla / 4, alturaPantalla / 4);
+
 		JPanel panel = new JPanel();
 		contentPane.add(panel, BorderLayout.CENTER);
 		panel.setLayout(null);
-		
+
 		JButton btnBebidas = new JButton("Bebidas");
 		btnBebidas.addMouseListener(new MouseAdapter() {
 			@Override
@@ -63,10 +63,10 @@ public class MenuPrincipal extends JFrame {
 				setVisible(false);
 			}
 		});
-		
+
 		btnBebidas.setBounds(29, 30, 89, 80);
 		panel.add(btnBebidas);
-		
+
 		JButton btnComida = new JButton("Comida");
 		btnComida.addMouseListener(new MouseAdapter() {
 			@Override
@@ -74,10 +74,10 @@ public class MenuPrincipal extends JFrame {
 				Comida.main(null);
 				setVisible(false);
 			}
-		});	
+		});
 		btnComida.setBounds(29, 157, 89, 80);
 		panel.add(btnComida);
-		
+
 		JButton btnHelados = new JButton("Helados");
 		btnHelados.addMouseListener(new MouseAdapter() {
 			@Override
@@ -88,7 +88,7 @@ public class MenuPrincipal extends JFrame {
 		});
 		btnHelados.setBounds(184, 30, 89, 80);
 		panel.add(btnHelados);
-		
+
 		JButton btnDulces = new JButton("Dulces");
 		btnDulces.addMouseListener(new MouseAdapter() {
 			@Override
@@ -102,5 +102,3 @@ public class MenuPrincipal extends JFrame {
 	}
 
 }
-
-	
