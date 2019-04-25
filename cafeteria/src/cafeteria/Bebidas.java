@@ -10,7 +10,11 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import lib.Insert_Productos;
+
 import java.awt.event.MouseAdapter;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class Bebidas extends JFrame {
 
@@ -65,7 +69,7 @@ public class Bebidas extends JFrame {
 		table = new JTable();
 		table.setColumnSelectionAllowed(true);
 		table.setCellSelectionEnabled(true);
-		table.setBounds(10, 56, 387, 248);
+		table.setBounds(10, 56, 432, 290);
 		panel.add(table);
 		
 		JButton btnVolver = new JButton("Volver");
@@ -95,6 +99,15 @@ public class Bebidas extends JFrame {
 		JButton btnQuitarDeCuenta = new JButton("Quitar de cuenta");
 		btnQuitarDeCuenta.setBounds(452, 90, 132, 23);
 		panel.add(btnQuitarDeCuenta);
+		
+		JButton btnAadirProducto = new JButton("A\u00F1adir Producto");
+		btnAadirProducto.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				Insert_Productos.main(null);
+				setVisible(false);
+			}
+		});
+		btnAadirProducto.setBounds(454, 124, 130, 23);
+		panel.add(btnAadirProducto);
 	}
-
 }

@@ -8,7 +8,6 @@ public class Usuarios {
 	private String direccion;
 	private int id;
 	private int id_tipo;
-	private String last_session;
 	private String nombre;
 
 	public String getApellidos() {

@@ -43,7 +43,7 @@ public class Insert extends Conexion {
 		ResultSet rs = null;
 		Connection con = getConexion();
 
-		String sql = "SELECT count(id) FROM usuarios WHERE usuarios = ?";
+		String sql = "SELECT count(id) FROM usuarios WHERE nombre = ?";
 
 		try {
 			ps = con.prepareStatement(sql);
