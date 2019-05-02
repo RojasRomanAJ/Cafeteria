@@ -73,4 +73,29 @@ public class Insert extends Conexion {
 
 		return matcher.find();
 	}
+	
+	public boolean addProducto (Productos pro) {
+
+		PreparedStatement ps = null;
+		Connection con = getConexion();
+
+		String sql = "INSERT INTO productos (id_Producto, nombre, tipo_Producto, precio) VALUES (?, ?, ?, ?)";
+
+		try {
+			ps = con.prepareStatement(sql);
+
+			ps.setInt(1, pro.getId_Producto());
+			ps.setString(2, pro.getNombre());
+			ps.setString(3, pro.getTipo_Producto());
+			ps.setDouble(4, pro.getPrecio());
+			ps.execute();
+			
+			return true;
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return false;
+		}
+	}
 }

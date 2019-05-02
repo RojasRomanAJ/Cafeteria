@@ -120,7 +120,7 @@ public class Insert_Productos extends JFrame {
 		btnQuitarProducto.setBounds(254, 163, 124, 23);
 		contentPane.add(btnQuitarProducto);
 		
-		JComboBox comboTipo = new JComboBox();
+		JComboBox<String> comboTipo = new JComboBox<String>();
 		comboTipo.addItem("Bebida");
 		comboTipo.addItem("Comida");
 		comboTipo.addItem("Helados");
