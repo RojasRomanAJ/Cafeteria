@@ -98,4 +98,31 @@ public class Insert extends Conexion {
 			return false;
 		}
 	}
+	
+	public int existeProducto(String pro) {
+
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+		Connection con = getConexion();
+
+		String sql = "SELECT count(id) FROM productos WHERE nombre = ?";
+
+		try {
+			ps = con.prepareStatement(sql);
+
+			ps.setString(1, pro);
+			rs = ps.executeQuery();
+
+			if (rs.next()) {
+				return rs.getInt(1);
+			}
+
+			return 1;
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return 1;
+		}
+	}
 }

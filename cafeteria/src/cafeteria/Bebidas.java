@@ -15,6 +15,8 @@ import lib.Insert_Productos;
 import java.awt.event.MouseAdapter;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.event.ComponentAdapter;
+import java.awt.event.ComponentEvent;
 
 public class Bebidas extends JFrame {
 
@@ -67,6 +69,13 @@ public class Bebidas extends JFrame {
 		panel.add(separator);
 		
 		table = new JTable();
+		table.addComponentListener(new ComponentAdapter() {
+			@Override
+			public void componentShown(ComponentEvent arg0) {
+				String sql = "SELECT id_Producto, Nombre, Tipo_Producto, Precio FROM productos WHERE tipo_Producto = Bebida";
+				
+			}
+		});
 		table.setColumnSelectionAllowed(true);
 		table.setCellSelectionEnabled(true);
 		table.setBounds(10, 56, 432, 290);

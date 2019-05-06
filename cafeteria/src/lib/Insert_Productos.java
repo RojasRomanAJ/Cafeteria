@@ -26,6 +26,7 @@ public class Insert_Productos extends JFrame {
 	private JPanel contentPane;
 	private JTextField textNombre;
 	private JTextField textPrecio;
+	private JTextField textProducto;
 
 	/**
 	 * Launch the application.
@@ -108,9 +109,33 @@ public class Insert_Productos extends JFrame {
 				Insert modSql = new Insert();
 				Productos mod = new Productos();
 				
-				if (textNombre.getText().equals("") || textPrecio.getText().equals("")) {
+				if (textNombre.getText().equals("") || textPrecio.getText().equals("") || textProducto.getText().equals("")) {
 					JOptionPane.showMessageDialog(null, "Hay campos vacios, debe completar todos los campos");
 				}
+				else {
+					if (modSql.existeProducto(textNombre.getText()) == 0) {
+
+						mod.setNombre(textNombre.getText());
+						mod.setPrecio(Double.parseDouble(textPrecio.getText()));
+						mod.setTipo_Producto(textProducto.getText());
+						mod.setId_Producto(1);
+
+						if (modSql.addProducto(mod)) {
+							JOptionPane.showMessageDialog(null, "Registro guardado");
+							limpiar();
+						} else {
+							JOptionPane.showMessageDialog(null, "Error al guardar");
+						}
+					} else {
+						JOptionPane.showMessageDialog(null, "El producto ya existe");
+					}
+				}
+			}
+			
+			private void limpiar() {
+				textNombre.setText("");
+				textPrecio.setText("");
+				textProducto.setText("");
 			}
 		});
 		btnAadir.setBounds(254, 116, 124, 23);
@@ -120,13 +145,10 @@ public class Insert_Productos extends JFrame {
 		btnQuitarProducto.setBounds(254, 163, 124, 23);
 		contentPane.add(btnQuitarProducto);
 		
-		JComboBox<String> comboTipo = new JComboBox<String>();
-		comboTipo.addItem("Bebida");
-		comboTipo.addItem("Comida");
-		comboTipo.addItem("Helados");
-		comboTipo.addItem("Dulces");
-		comboTipo.setBounds(38, 253, 167, 20);
-		contentPane.add(comboTipo);
+		textProducto = new JTextField();
+		textProducto.setBounds(38, 257, 167, 20);
+		contentPane.add(textProducto);
+		textProducto.setColumns(10);
 		
 	}
 }
