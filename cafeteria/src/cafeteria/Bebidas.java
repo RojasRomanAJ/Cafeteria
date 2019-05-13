@@ -108,15 +108,5 @@ public class Bebidas extends JFrame {
 		JButton btnQuitarDeCuenta = new JButton("Quitar de cuenta");
 		btnQuitarDeCuenta.setBounds(452, 90, 132, 23);
 		panel.add(btnQuitarDeCuenta);
-		
-		JButton btnAadirProducto = new JButton("A\u00F1adir Producto");
-		btnAadirProducto.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				Insert_Productos.main(null);
-				setVisible(false);
-			}
-		});
-		btnAadirProducto.setBounds(454, 124, 130, 23);
-		panel.add(btnAadirProducto);
 	}
 }

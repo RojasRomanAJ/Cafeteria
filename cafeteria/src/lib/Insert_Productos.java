@@ -100,7 +100,7 @@ public class Insert_Productos extends JFrame {
 				setVisible(false);
 			}
 		});
-		btnVolver.setBounds(254, 210, 124, 23);
+		btnVolver.setBounds(254, 256, 124, 23);
 		contentPane.add(btnVolver);
 		
 		JButton btnAadir = new JButton("A\u00F1adir");
@@ -113,7 +113,7 @@ public class Insert_Productos extends JFrame {
 					JOptionPane.showMessageDialog(null, "Hay campos vacios, debe completar todos los campos");
 				}
 				else {
-					if (modSql.existeProducto(textNombre.getText()) == 0) {
+					if (!modSql.existeProducto(textNombre.getText())) {
 
 						mod.setNombre(textNombre.getText());
 						mod.setPrecio(Double.parseDouble(textPrecio.getText()));
@@ -138,12 +138,8 @@ public class Insert_Productos extends JFrame {
 				textProducto.setText("");
 			}
 		});
-		btnAadir.setBounds(254, 116, 124, 23);
+		btnAadir.setBounds(254, 213, 124, 23);
 		contentPane.add(btnAadir);
-		
-		JButton btnQuitarProducto = new JButton("Quitar Producto");
-		btnQuitarProducto.setBounds(254, 163, 124, 23);
-		contentPane.add(btnQuitarProducto);
 		
 		textProducto = new JTextField();
 		textProducto.setBounds(38, 257, 167, 20);

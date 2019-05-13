@@ -88,7 +88,7 @@ public class Insert extends Conexion {
 			ps.setString(2, pro.getNombre());
 			ps.setString(3, pro.getTipo_Producto());
 			ps.setDouble(4, pro.getPrecio());
-			ps.execute();
+			ps.execute(sql);
 			
 			return true;
 
@@ -99,7 +99,7 @@ public class Insert extends Conexion {
 		}
 	}
 	
-	public int existeProducto(String pro) {
+	public boolean existeProducto(String pro) {
 
 		PreparedStatement ps = null;
 		ResultSet rs = null;
@@ -111,18 +111,18 @@ public class Insert extends Conexion {
 			ps = con.prepareStatement(sql);
 
 			ps.setString(1, pro);
-			rs = ps.executeQuery();
+			rs = ps.executeQuery(sql);
 
 			if (rs.next()) {
-				return rs.getInt(1);
+				return true;
 			}
 
-			return 1;
+			return false;
 
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-			return 1;
+			return false;
 		}
 	}
 }

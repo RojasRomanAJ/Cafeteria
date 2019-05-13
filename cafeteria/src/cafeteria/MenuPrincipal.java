@@ -8,6 +8,9 @@ import java.awt.event.MouseAdapter;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import lib.Insert_Productos;
+
 import java.awt.event.MouseEvent;
 
 public class MenuPrincipal extends JFrame {
@@ -36,7 +39,7 @@ public class MenuPrincipal extends JFrame {
 	public MenuPrincipal() {
 		setTitle("Cafeteria El Maestro");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 337, 329);
+		setBounds(100, 100, 578, 440);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setLayout(new BorderLayout(0, 0));
@@ -64,7 +67,7 @@ public class MenuPrincipal extends JFrame {
 			}
 		});
 
-		btnBebidas.setBounds(29, 30, 89, 80);
+		btnBebidas.setBounds(61, 25, 244, 80);
 		panel.add(btnBebidas);
 
 		JButton btnComida = new JButton("Comida");
@@ -75,7 +78,7 @@ public class MenuPrincipal extends JFrame {
 				setVisible(false);
 			}
 		});
-		btnComida.setBounds(29, 157, 89, 80);
+		btnComida.setBounds(61, 116, 244, 80);
 		panel.add(btnComida);
 
 		JButton btnHelados = new JButton("Helados");
@@ -86,7 +89,7 @@ public class MenuPrincipal extends JFrame {
 				setVisible(false);
 			}
 		});
-		btnHelados.setBounds(184, 30, 89, 80);
+		btnHelados.setBounds(61, 298, 244, 80);
 		panel.add(btnHelados);
 
 		JButton btnDulces = new JButton("Dulces");
@@ -97,8 +100,22 @@ public class MenuPrincipal extends JFrame {
 				setVisible(false);
 			}
 		});
-		btnDulces.setBounds(184, 157, 89, 80);
+		btnDulces.setBounds(61, 207, 244, 80);
 		panel.add(btnDulces);
+		
+		JButton btnImprimirCuenta = new JButton("Imprimir cuenta");
+		btnImprimirCuenta.setBounds(391, 54, 136, 23);
+		panel.add(btnImprimirCuenta);
+		
+		JButton btnAadirProducto = new JButton("A\u00F1adir Producto");
+		btnAadirProducto.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent arg0) {
+				Insert_Productos.main(null);
+				setVisible(false);
+			}
+		});
+		btnAadirProducto.setBounds(391, 99, 136, 23);
+		panel.add(btnAadirProducto);
 	}
-
 }
