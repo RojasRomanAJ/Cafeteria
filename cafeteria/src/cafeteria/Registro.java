@@ -108,7 +108,7 @@ public class Registro extends JFrame {
 
 					if (pass.equals(passCon)) {
 
-						if (modSql.existeUsuario(txtNombre.getText()) == 0) {
+						if (modSql.existeUsuario(txtNombre.getText())) {
 
 							String nuevoPass = OcultarPass.md5(pass);
 
