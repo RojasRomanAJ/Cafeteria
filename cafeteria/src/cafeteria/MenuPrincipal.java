@@ -107,7 +107,7 @@ public class MenuPrincipal extends JFrame {
 		btnImprimirCuenta.setBounds(391, 54, 136, 23);
 		panel.add(btnImprimirCuenta);
 		
-		JButton btnAadirProducto = new JButton("A\u00F1adir Producto");
+		JButton btnAadirProducto = new JButton("Gestion Productos");
 		btnAadirProducto.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
@@ -117,5 +117,9 @@ public class MenuPrincipal extends JFrame {
 		});
 		btnAadirProducto.setBounds(391, 99, 136, 23);
 		panel.add(btnAadirProducto);
+		
+		JButton btnSalir = new JButton("Salir");
+		btnSalir.setBounds(391, 355, 136, 23);
+		panel.add(btnSalir);
 	}
 }

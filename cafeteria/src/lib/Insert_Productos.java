@@ -138,13 +138,32 @@ public class Insert_Productos extends JFrame {
 				textProducto.setText("");
 			}
 		});
-		btnAadir.setBounds(254, 213, 124, 23);
+		btnAadir.setBounds(254, 80, 124, 23);
 		contentPane.add(btnAadir);
 		
 		textProducto = new JTextField();
 		textProducto.setBounds(38, 257, 167, 20);
 		contentPane.add(textProducto);
 		textProducto.setColumns(10);
+		
+		JButton btnQuitar = new JButton("Quitar");
+		btnQuitar.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent arg0) {
+				Delete modSql = new Delete();
+			}
+		});
+		btnQuitar.setBounds(254, 114, 124, 23);
+		contentPane.add(btnQuitar);
+		
+		JButton btnActualizar = new JButton("Actualizar");
+		btnActualizar.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+			}
+		});
+		btnActualizar.setBounds(254, 147, 124, 23);
+		contentPane.add(btnActualizar);
 		
 	}
 }
