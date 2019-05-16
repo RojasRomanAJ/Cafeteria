@@ -114,11 +114,11 @@ public class Insert_Productos extends JFrame {
 				}
 				else {
 					if (!modSql.existeProducto(textNombre.getText())) {
-
+						
+						mod.getId_Producto();
 						mod.setNombre(textNombre.getText());
 						mod.setPrecio(Double.parseDouble(textPrecio.getText()));
 						mod.setTipo_Producto(textProducto.getText());
-						//mod.getId_Producto();
 
 						if (modSql.addProducto(mod)) {
 							JOptionPane.showMessageDialog(null, "Registro guardado");

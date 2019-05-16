@@ -15,7 +15,7 @@ public class Insert extends Conexion {
 		PreparedStatement ps = null;
 		Connection con = getConexion();
 
-		String sql = "INSERT INTO usuarios (id, nombre, apellidos, direccion, correo_electronico, contraseña, id_tipo) VALUES (?, ?, ?, ?, ?, ?, ?)";
+		String sql = "INSERT INTO usuarios (id, nombre, apellidos, correo_electronico, contraseña, direccion, id_tipo) VALUES (?, ?, ?, ?, ?, ?, ?)";
 
 		try {
 			ps = con.prepareStatement(sql);
@@ -23,9 +23,9 @@ public class Insert extends Conexion {
 			ps.setInt(1, usr.getId());
 			ps.setString(2, usr.getNombre());
 			ps.setString(3, usr.getApellidos());
-			ps.setString(4, usr.getDireccion());
-			ps.setString(5, usr.getCorreo_electronico());
-			ps.setString(6, usr.getContraseña());
+			ps.setString(4, usr.getCorreo_electronico());
+			ps.setString(5, usr.getContraseña());
+			ps.setString(6, usr.getDireccion());
 			ps.setInt(7, usr.getId_tipo());
 			ps.executeUpdate();
 			return true;
@@ -79,12 +79,12 @@ public class Insert extends Conexion {
 		PreparedStatement ps = null;
 		Connection con = getConexion();
 
-		String sql = "INSERT INTO productos (id_Producto, nombre, tipo_Producto, precio) VALUES (?, ?, ?, ?)";
+		String sql = "INSERT INTO productos (nombre, tipo_Producto, precio) VALUES (?, ?, ?)";
 
 		try {
 			ps = con.prepareStatement(sql);
 
-			ps.setInt(1, pro.getId_Producto());
+			//ps.setInt(1, pro.getId_Producto());
 			ps.setString(2, pro.getNombre());
 			ps.setString(3, pro.getTipo_Producto());
 			ps.setDouble(4, pro.getPrecio());
@@ -105,13 +105,13 @@ public class Insert extends Conexion {
 		ResultSet rs = null;
 		Connection con = getConexion();
 
-		String sql = "SELECT count(id) FROM productos WHERE nombre = ?";
+		String sql = "SELECT count(id_Producto) FROM productos WHERE nombre = ?";
 
 		try {
 			ps = con.prepareStatement(sql);
 
 			ps.setString(1, pro);
-			rs = ps.executeQuery(sql);
+			rs = ps.executeQuery();
 
 			if (rs.next()) {
 				return true;
