@@ -10,6 +10,7 @@ public class Conexion {
 	private final String password = "manolo";
 	private final String url = "jdbc:mysql://localhost:3308/" + base;
 	private Connection con = null;
+	private PreparedStatement ps = null;
 
 	public Connection getConexion() {
 

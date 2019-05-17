@@ -79,12 +79,12 @@ public class Insert extends Conexion {
 		PreparedStatement ps = null;
 		Connection con = getConexion();
 
-		String sql = "INSERT INTO productos (nombre, tipo_Producto, precio) VALUES (?, ?, ?)";
+		String sql = "INSERT INTO productos (id_Producto, nombre, tipo_Producto, precio) VALUES (?, ?, ?, ?)";
 
 		try {
 			ps = con.prepareStatement(sql);
 
-			//ps.setInt(1, pro.getId_Producto());
+			ps.setInt(1, pro.getId_Producto());
 			ps.setString(2, pro.getNombre());
 			ps.setString(3, pro.getTipo_Producto());
 			ps.setDouble(4, pro.getPrecio());
