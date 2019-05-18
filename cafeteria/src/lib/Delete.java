@@ -19,8 +19,8 @@ public class Delete extends Conexion {
 
 			ps.setInt(1, pro.getId_Producto());
 			ps.setString(2, pro.getNombre());
-			ps.setString(3, pro.getTipo_Producto());
-			ps.setDouble(4, pro.getPrecio());
+			ps.setDouble(3, pro.getPrecio());
+			ps.setString(4, pro.getTipo_Producto());
 			ps.executeUpdate();
 			
 			return true;

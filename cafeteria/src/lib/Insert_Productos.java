@@ -164,7 +164,7 @@ public class Insert_Productos extends JFrame {
 						mod.setNombre(textNombre.getText());
 						mod.setPrecio(Double.parseDouble(textPrecio.getText()));
 						mod.setTipo_Producto(textProducto.getText());
-						mod.setId_Producto(int.parseInt(textId.getText()));
+						mod.setId_Producto(Integer.parseInt(textId.getText()));
 					}
 				} else {
 					if (modSql.eliminarProducto(mod)) {
@@ -179,6 +179,7 @@ public class Insert_Productos extends JFrame {
 				textNombre.setText("");
 				textPrecio.setText("");
 				textProducto.setText("");
+				textId.setText("");
 			}
 		});
 		btnQuitar.setBounds(254, 114, 124, 23);

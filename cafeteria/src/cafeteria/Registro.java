@@ -66,19 +66,19 @@ public class Registro extends JFrame {
 		panel.setLayout(null);
 
 		JLabel lblNombre = new JLabel("Nombre");
-		lblNombre.setBounds(143, 49, 46, 14);
+		lblNombre.setBounds(29, 49, 46, 14);
 		panel.add(lblNombre);
 
 		JLabel lblNewLabel = new JLabel("Apellidos");
-		lblNewLabel.setBounds(143, 130, 104, 14);
+		lblNewLabel.setBounds(29, 130, 104, 14);
 		panel.add(lblNewLabel);
 
 		JLabel lblDireccion = new JLabel("Direccion");
-		lblDireccion.setBounds(364, 49, 56, 14);
+		lblDireccion.setBounds(250, 49, 56, 14);
 		panel.add(lblDireccion);
 
 		JLabel lblCorreoElectronico = new JLabel("Correo Electronico");
-		lblCorreoElectronico.setBounds(364, 130, 158, 14);
+		lblCorreoElectronico.setBounds(250, 130, 158, 14);
 		panel.add(lblCorreoElectronico);
 
 		JButton btnAtrs = new JButton("Atr\u00E1s");
@@ -145,44 +145,52 @@ public class Registro extends JFrame {
 
 		});
 
-		btnGuardar.setBounds(573, 346, 89, 23);
+		btnGuardar.setBounds(532, 73, 115, 23);
 		panel.add(btnGuardar);
 
 		JLabel lblContrasea = new JLabel("Contrase\u00F1a");
-		lblContrasea.setBounds(143, 215, 94, 14);
+		lblContrasea.setBounds(29, 215, 94, 14);
 		panel.add(lblContrasea);
 
 		txtNombre = new JTextField();
-		txtNombre.setBounds(143, 74, 176, 20);
+		txtNombre.setBounds(29, 74, 176, 20);
 		panel.add(txtNombre);
 		txtNombre.setColumns(10);
 
 		txtApellidos = new JTextField();
-		txtApellidos.setBounds(143, 155, 176, 20);
+		txtApellidos.setBounds(29, 155, 176, 20);
 		panel.add(txtApellidos);
 		txtApellidos.setColumns(10);
 
 		txtDireccion = new JTextField();
-		txtDireccion.setBounds(364, 74, 176, 20);
+		txtDireccion.setBounds(250, 74, 176, 20);
 		panel.add(txtDireccion);
 		txtDireccion.setColumns(10);
 
 		txtCorreo = new JTextField();
-		txtCorreo.setBounds(364, 155, 176, 20);
+		txtCorreo.setBounds(250, 155, 176, 20);
 		panel.add(txtCorreo);
 		txtCorreo.setColumns(10);
 
 		passwordField = new JPasswordField();
-		passwordField.setBounds(143, 240, 176, 20);
+		passwordField.setBounds(29, 240, 176, 20);
 		panel.add(passwordField);
 
 		JLabel lblConfirmarContrasea = new JLabel("Confirmar Contrase\u00F1a");
-		lblConfirmarContrasea.setBounds(364, 215, 176, 14);
+		lblConfirmarContrasea.setBounds(250, 215, 176, 14);
 		panel.add(lblConfirmarContrasea);
 
 		passwordField_1 = new JPasswordField();
-		passwordField_1.setBounds(364, 240, 176, 20);
+		passwordField_1.setBounds(250, 240, 176, 20);
 		panel.add(passwordField_1);
+		
+		JButton btnBorrar = new JButton("Borrar");
+		btnBorrar.setBounds(532, 107, 115, 23);
+		panel.add(btnBorrar);
+		
+		JButton btnActualizar = new JButton("Actualizar");
+		btnActualizar.setBounds(532, 141, 115, 23);
+		panel.add(btnActualizar);
 
 	}
 }

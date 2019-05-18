@@ -4,6 +4,9 @@ import java.awt.*;
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 
+import lib.Select;
+import lib.Usuarios;
+
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
@@ -11,7 +14,9 @@ public class LogIn extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField textField;
+	public static JTextField textUsuario;
 	private JPasswordField passwordField;
+	public static JPasswordField textPasswd;
 
 	/**
 	 * Launch the application.
@@ -75,24 +80,36 @@ public class LogIn extends JFrame {
 		lblUser.setBounds(75, 115, 46, 14);
 		panel.add(lblUser);
 
-		textField = new JTextField();
-		textField.setBounds(75, 140, 142, 20);
-		panel.add(textField);
-		textField.setColumns(10);
+		textUsuario = new JTextField();
+		textUsuario.setBounds(75, 140, 142, 20);
+		panel.add(textUsuario);
+		textUsuario.setColumns(10);
 
 		JLabel lblPassword = new JLabel("Contrase\u00F1a");
 		lblPassword.setBounds(75, 171, 106, 14);
 		panel.add(lblPassword);
 
-		passwordField = new JPasswordField();
-		passwordField.setBounds(75, 196, 142, 20);
-		panel.add(passwordField);
+		textPasswd = new JPasswordField();
+		textPasswd.setBounds(75, 196, 142, 20);
+		panel.add(textPasswd);
 
 		JButton btnLogin = new JButton("Entrar");
 		btnLogin.addMouseListener(new MouseAdapter() {
 			public void mouseClicked(MouseEvent arg0) {
 				MenuPrincipal.main(null);
 				setVisible(false);
+				
+				Select existeUsr = new Select();
+				
+			/*	if(Select.class() == 1) {
+					
+					JOptionPane.showMessageDialog(null, "Bienvenido\n Has ingresado " + "satisfactoriamente al sistema", "Mensaje de bienvenida", JOptionPane.INFORMATION_MESSAGE);
+					
+				} else {
+					
+					JOptionPane.showMessageDialog(null, "Acceso denegado:\n" + "Por favor ingrese un usuario y/o contraseña válidos", "Acceso denegado", JOptionPane.ERROR_MESSAGE);
+					
+				} */
 			}
 		});
 		btnLogin.setBounds(75, 227, 142, 23);
