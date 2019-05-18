@@ -8,7 +8,7 @@ public class Conexion {
 	private final String base = "cafeteria";
 	private final String user = "root";
 	private final String password = "manolo";
-	private final String url = "jdbc:mysql://localhost:3308/" + base;
+	private final String url = "jdbc:mysql://localhost:3306/" + base;
 	private Connection con = null;
 
 	public Connection getConexion() {
