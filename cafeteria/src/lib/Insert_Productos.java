@@ -51,7 +51,7 @@ public class Insert_Productos extends JFrame {
 	public Insert_Productos() {
 		setTitle("Añadir Producto");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 431, 348);
+		setBounds(100, 100, 648, 466);
 
 		Toolkit mipantalla = Toolkit.getDefaultToolkit();
 
@@ -72,25 +72,25 @@ public class Insert_Productos extends JFrame {
 		contentPane.setLayout(null);
 
 		JLabel lblNombre = new JLabel("Nombre");
-		lblNombre.setBounds(38, 56, 46, 14);
+		lblNombre.setBounds(38, 198, 46, 14);
 		contentPane.add(lblNombre);
 
 		JLabel lblPrecio = new JLabel("Precio");
-		lblPrecio.setBounds(38, 114, 46, 14);
+		lblPrecio.setBounds(38, 254, 46, 14);
 		contentPane.add(lblPrecio);
 
 		JLabel lblTipo = new JLabel("Tipo Producto");
-		lblTipo.setBounds(38, 178, 107, 14);
+		lblTipo.setBounds(38, 318, 107, 14);
 		contentPane.add(lblTipo);
 
 		textNombre = new JTextField();
-		textNombre.setBounds(38, 81, 167, 20);
+		textNombre.setBounds(38, 223, 167, 20);
 		contentPane.add(textNombre);
 		textNombre.setColumns(10);
 
 		textPrecio = new JTextField();
 		textPrecio.setColumns(10);
-		textPrecio.setBounds(38, 139, 167, 20);
+		textPrecio.setBounds(38, 274, 167, 20);
 		contentPane.add(textPrecio);
 
 		JButton btnVolver = new JButton("Volver");
@@ -101,7 +101,7 @@ public class Insert_Productos extends JFrame {
 				setVisible(false);
 			}
 		});
-		btnVolver.setBounds(254, 256, 124, 23);
+		btnVolver.setBounds(486, 382, 124, 23);
 		contentPane.add(btnVolver);
 
 		JButton btnAadir = new JButton("A\u00F1adir");
@@ -140,11 +140,11 @@ public class Insert_Productos extends JFrame {
 				textProducto.setText("");
 			}
 		});
-		btnAadir.setBounds(254, 80, 124, 23);
+		btnAadir.setBounds(486, 225, 124, 23);
 		contentPane.add(btnAadir);
 
 		textProducto = new JTextField();
-		textProducto.setBounds(38, 207, 167, 20);
+		textProducto.setBounds(38, 335, 167, 20);
 		contentPane.add(textProducto);
 		textProducto.setColumns(10);
 
@@ -156,25 +156,26 @@ public class Insert_Productos extends JFrame {
 				Productos mod = new Productos();
 
 				if (textNombre.getText().equals("") || textPrecio.getText().equals("")
-						|| textProducto.getText().equals("")) {
+						|| textProducto.getText().equals("") || textId.getText().equals("")) {
 					JOptionPane.showMessageDialog(null, "Hay campos vacios, debe completar todos los campos");
-					
-					if(!modSql.existeProducto(textNombre.getText())) {
-						
+				} else {
+					if (modSql.existeProducto(textNombre.getText())) {
+
 						mod.setNombre(textNombre.getText());
 						mod.setPrecio(Double.parseDouble(textPrecio.getText()));
 						mod.setTipo_Producto(textProducto.getText());
 						mod.setId_Producto(Integer.parseInt(textId.getText()));
 					}
+				}
+				if (modSql.eliminarProducto(mod)) {
+					JOptionPane.showMessageDialog(null, "Registro eliminado correctamente");
+					limpiar();
 				} else {
-					if (modSql.eliminarProducto(mod)) {
-							JOptionPane.showMessageDialog(null, "Registro eliminado correctamente");
-							limpiar();
-						} else {
-							JOptionPane.showMessageDialog(null, "Error al eliminar");
-						}
-					}
+					JOptionPane.showMessageDialog(null, "Error al eliminar");
+				}
+
 			}
+
 			private void limpiar() {
 				textNombre.setText("");
 				textPrecio.setText("");
@@ -182,24 +183,50 @@ public class Insert_Productos extends JFrame {
 				textId.setText("");
 			}
 		});
-		btnQuitar.setBounds(254, 114, 124, 23);
+		btnQuitar.setBounds(486, 259, 124, 23);
 		contentPane.add(btnQuitar);
 
 		JButton btnActualizar = new JButton("Actualizar");
-		btnActualizar.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
+		btnActualizar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				Update modSql = new Update();
+				Productos mod = new Productos();
+
+				if (textPrecio.getText().equals("") || textId.getText().equals("") || textNombre.getText().equals("") || textProducto.getText().equals("")) {
+					JOptionPane.showMessageDialog(null, "Hay campos vacios, debe completar todos los campos");
+				} else {
+					if (modSql.existeProducto(textNombre.getText())) {
+
+						mod.setNombre(textNombre.getText());
+						mod.setPrecio(Double.parseDouble(textPrecio.getText()));
+						mod.setTipo_Producto(textProducto.getText());
+						mod.setId_Producto(Integer.parseInt(textId.getText()));
+					}
+				}
+				if (modSql.updateProducto(mod)) {
+					JOptionPane.showMessageDialog(null, "Registro actualizado correctamente");
+					limpiar();
+				} else {
+					JOptionPane.showMessageDialog(null, "Error al actualizar");
+				}
+			}
+			
+			private void limpiar() {
+				textNombre.setText("");
+				textPrecio.setText("");
+				textProducto.setText("");
+				textId.setText("");
 			}
 		});
-		btnActualizar.setBounds(254, 147, 124, 23);
+		btnActualizar.setBounds(486, 292, 124, 23);
 		contentPane.add(btnActualizar);
-		
+
 		JLabel lblIdProducto = new JLabel("Id Producto");
-		lblIdProducto.setBounds(38, 238, 107, 14);
+		lblIdProducto.setBounds(238, 202, 107, 14);
 		contentPane.add(lblIdProducto);
-		
+
 		textId = new JTextField();
-		textId.setBounds(38, 257, 86, 20);
+		textId.setBounds(238, 221, 86, 20);
 		contentPane.add(textId);
 		textId.setColumns(10);
 
