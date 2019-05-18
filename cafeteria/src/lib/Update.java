@@ -12,7 +12,7 @@ public class Update extends Conexion {
 		PreparedStatement ps = null;
 		Connection con = getConexion();
 
-		String sql = "UPDATE productos SET nombre = ?, precio = ?, tipo_producto = ? WHERE id_producto = ?";
+		String sql = "UPDATE productos SET nombre = ?, precio = ?, tipo_Producto = ? WHERE id_Producto = ?";
 
 		try {
 			ps = con.prepareStatement(sql);

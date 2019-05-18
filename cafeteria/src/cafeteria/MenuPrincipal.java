@@ -12,6 +12,8 @@ import javax.swing.border.EmptyBorder;
 import lib.Insert_Productos;
 
 import java.awt.event.MouseEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class MenuPrincipal extends JFrame {
 
@@ -104,7 +106,7 @@ public class MenuPrincipal extends JFrame {
 		panel.add(btnDulces);
 		
 		JButton btnImprimirCuenta = new JButton("Imprimir cuenta");
-		btnImprimirCuenta.setBounds(391, 54, 136, 23);
+		btnImprimirCuenta.setBounds(366, 54, 161, 23);
 		panel.add(btnImprimirCuenta);
 		
 		JButton btnAadirProducto = new JButton("Gestion Productos");
@@ -115,10 +117,16 @@ public class MenuPrincipal extends JFrame {
 				setVisible(false);
 			}
 		});
-		btnAadirProducto.setBounds(391, 99, 136, 23);
+		btnAadirProducto.setBounds(366, 99, 161, 23);
 		panel.add(btnAadirProducto);
 		
 		JButton btnSalir = new JButton("Salir");
+		btnSalir.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				LogIn.main(null);
+				setVisible(false);
+			}
+		});
 		btnSalir.setBounds(391, 355, 136, 23);
 		panel.add(btnSalir);
 	}

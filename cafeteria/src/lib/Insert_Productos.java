@@ -20,6 +20,12 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.ListSelectionModel;
+import javax.swing.border.SoftBevelBorder;
+import javax.swing.border.BevelBorder;
+import java.awt.Color;
 
 public class Insert_Productos extends JFrame {
 
@@ -72,28 +78,29 @@ public class Insert_Productos extends JFrame {
 		contentPane.setLayout(null);
 
 		JLabel lblNombre = new JLabel("Nombre");
-		lblNombre.setBounds(38, 198, 46, 14);
+		lblNombre.setBounds(432, 94, 46, 14);
 		contentPane.add(lblNombre);
 
 		JLabel lblPrecio = new JLabel("Precio");
-		lblPrecio.setBounds(38, 254, 46, 14);
+		lblPrecio.setBounds(432, 150, 46, 14);
 		contentPane.add(lblPrecio);
 
 		JLabel lblTipo = new JLabel("Tipo Producto");
-		lblTipo.setBounds(38, 318, 107, 14);
+		lblTipo.setBounds(432, 214, 107, 14);
 		contentPane.add(lblTipo);
 
 		textNombre = new JTextField();
-		textNombre.setBounds(38, 223, 167, 20);
+		textNombre.setBounds(432, 119, 167, 20);
 		contentPane.add(textNombre);
 		textNombre.setColumns(10);
 
 		textPrecio = new JTextField();
+		textPrecio.setBounds(432, 170, 167, 20);
 		textPrecio.setColumns(10);
-		textPrecio.setBounds(38, 274, 167, 20);
 		contentPane.add(textPrecio);
 
 		JButton btnVolver = new JButton("Volver");
+		btnVolver.setBounds(56, 382, 124, 23);
 		btnVolver.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
@@ -101,10 +108,10 @@ public class Insert_Productos extends JFrame {
 				setVisible(false);
 			}
 		});
-		btnVolver.setBounds(486, 382, 124, 23);
 		contentPane.add(btnVolver);
 
 		JButton btnAadir = new JButton("A\u00F1adir");
+		btnAadir.setBounds(444, 277, 124, 23);
 		btnAadir.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				Insert modSql = new Insert();
@@ -114,7 +121,7 @@ public class Insert_Productos extends JFrame {
 						|| textProducto.getText().equals("")) {
 					JOptionPane.showMessageDialog(null, "Hay campos vacios, debe completar todos los campos");
 				} else {
-					if (!modSql.existeProducto(textNombre.getText())) {
+					if (modSql.existeProducto(textNombre.getText())) {
 
 						mod.setNombre(textNombre.getText());
 						mod.setPrecio(Double.parseDouble(textPrecio.getText()));
@@ -140,15 +147,15 @@ public class Insert_Productos extends JFrame {
 				textProducto.setText("");
 			}
 		});
-		btnAadir.setBounds(486, 225, 124, 23);
 		contentPane.add(btnAadir);
 
 		textProducto = new JTextField();
-		textProducto.setBounds(38, 335, 167, 20);
+		textProducto.setBounds(432, 231, 167, 20);
 		contentPane.add(textProducto);
 		textProducto.setColumns(10);
 
-		JButton btnQuitar = new JButton("Quitar");
+		JButton btnQuitar = new JButton("Eliminar");
+		btnQuitar.setBounds(444, 311, 124, 23);
 		btnQuitar.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
@@ -183,10 +190,10 @@ public class Insert_Productos extends JFrame {
 				textId.setText("");
 			}
 		});
-		btnQuitar.setBounds(486, 259, 124, 23);
 		contentPane.add(btnQuitar);
 
 		JButton btnActualizar = new JButton("Actualizar");
+		btnActualizar.setBounds(444, 344, 124, 23);
 		btnActualizar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				Update modSql = new Update();
@@ -218,17 +225,21 @@ public class Insert_Productos extends JFrame {
 				textId.setText("");
 			}
 		});
-		btnActualizar.setBounds(486, 292, 124, 23);
 		contentPane.add(btnActualizar);
 
 		JLabel lblIdProducto = new JLabel("Id Producto");
-		lblIdProducto.setBounds(238, 202, 107, 14);
+		lblIdProducto.setBounds(432, 35, 107, 14);
 		contentPane.add(lblIdProducto);
 
 		textId = new JTextField();
-		textId.setBounds(238, 221, 86, 20);
+		textId.setBounds(432, 63, 86, 20);
 		contentPane.add(textId);
 		textId.setColumns(10);
+		
+		JButton btnBuscar = new JButton("Buscar");
+		btnBuscar.setBounds(444, 378, 124, 23);
+		contentPane.add(btnBuscar);
+		setVisible(true);
 
 	}
 }
