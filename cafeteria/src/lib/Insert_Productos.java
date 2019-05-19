@@ -7,7 +7,13 @@ import java.awt.Toolkit;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import javax.swing.border.EmptyBorder;
+import javax.swing.table.DefaultTableModel;
+
+import com.mysql.jdbc.Connection;
+import com.mysql.jdbc.PreparedStatement;
+import com.mysql.jdbc.ResultSet;
 
 import cafeteria.MenuPrincipal;
 
@@ -18,14 +24,11 @@ import javax.swing.JButton;
 import javax.swing.JComboBox;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.sql.ResultSetMetaData;
+import java.sql.SQLException;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JTable;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.ListSelectionModel;
-import javax.swing.border.SoftBevelBorder;
-import javax.swing.border.BevelBorder;
-import java.awt.Color;
 
 public class Insert_Productos extends JFrame {
 
@@ -34,6 +37,7 @@ public class Insert_Productos extends JFrame {
 	private JTextField textPrecio;
 	private JTextField textProducto;
 	private JTextField textId;
+	private JTable jtProductos;
 
 	/**
 	 * Launch the application.
@@ -239,7 +243,51 @@ public class Insert_Productos extends JFrame {
 		JButton btnBuscar = new JButton("Buscar");
 		btnBuscar.setBounds(444, 378, 124, 23);
 		contentPane.add(btnBuscar);
+		
+		jtProductos = new JTable();
+		jtProductos.setBounds(10, 11, 412, 346);
+		panel.add(jtProductos);
+		
 		setVisible(true);
+		setResizable(true);
+		
+		try {
+			
+			Object[][] data = new Object[0][0];
+			String[] datos = { "Id_Producto", "Nombre", "Precio €", "Tipo_Producto" };
+			DefaultTableModel modelo = new DefaultTableModel(data, datos);
+			jtProductos.setModel(modelo);
+			modelo.fireTableDataChanged();
+			JScrollPane scroll = new JScrollPane(jtProductos);
+			scroll.setBounds(10, 11, 412, 346);
+			getContentPane().add(scroll, BorderLayout.NORTH);
+			
+			java.sql.PreparedStatement ps = null;
+			java.sql.ResultSet rs = null;
+			Conexion con = new Conexion();
+			java.sql.Connection conn = con.getConexion();
+			
+			String sql = "SELECT * FROM productos";
+			ps = conn.prepareStatement(sql);
+			rs = ps.executeQuery();
+			
+			ResultSetMetaData rsMd = rs.getMetaData();
+			int cantidadColumnas = rsMd.getColumnCount();
+			
+			while (rs.next()) {
+				
+				Object[] filas = new Object[cantidadColumnas];
+				
+				for (int i = 0; i < cantidadColumnas; i++) {
+					filas[i] = rs.getObject(i + 1);
+				}
+				
+				modelo.addRow(filas);
+			}
+			
+		} catch (SQLException e) {
+			JOptionPane.showMessageDialog(null, "No se puede mostrar la tabla productos");
+		}
 
 	}
 }

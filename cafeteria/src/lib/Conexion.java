@@ -30,4 +30,9 @@ public class Conexion {
 		return con;
 	}
 
+	public com.mysql.jdbc.PreparedStatement prepareStatement(String sql) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }
