@@ -203,14 +203,14 @@ public class Insert_Productos extends JFrame {
 				Update modSql = new Update();
 				Productos mod = new Productos();
 
-				if (textPrecio.getText().equals("") || textId.getText().equals("") || textNombre.getText().equals("") || textProducto.getText().equals("")) {
+				if (textPrecio.getText().equals("") || textId.getText().equals("")) {
 					JOptionPane.showMessageDialog(null, "Hay campos vacios, debe completar todos los campos");
 				} else {
-					if (modSql.existeProducto(textNombre.getText())) {
+					if (!modSql.existeProducto(textNombre.getText())) {
 
-						mod.setNombre(textNombre.getText());
+						//mod.setNombre(textNombre.getText());
 						mod.setPrecio(Double.parseDouble(textPrecio.getText()));
-						mod.setTipo_Producto(textProducto.getText());
+						//mod.setTipo_Producto(textProducto.getText());
 						mod.setId_Producto(Integer.parseInt(textId.getText()));
 					}
 				}
@@ -239,10 +239,6 @@ public class Insert_Productos extends JFrame {
 		textId.setBounds(432, 63, 86, 20);
 		contentPane.add(textId);
 		textId.setColumns(10);
-		
-		JButton btnBuscar = new JButton("Buscar");
-		btnBuscar.setBounds(444, 378, 124, 23);
-		contentPane.add(btnBuscar);
 		
 		jtProductos = new JTable();
 		jtProductos.setBounds(10, 11, 412, 346);

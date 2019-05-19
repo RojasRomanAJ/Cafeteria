@@ -1,14 +1,21 @@
 package cafeteria;
 
+import lib.Usuarios;
+
 import java.awt.*;
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 
+import lib.Conexion;
+import lib.Insert;
+import lib.Productos;
 import lib.Select;
 import lib.Usuarios;
 
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.sql.SQLException;
+import java.util.logging.Logger;
 
 public class LogIn extends JFrame {
 
@@ -95,23 +102,35 @@ public class LogIn extends JFrame {
 
 		JButton btnLogin = new JButton("Entrar");
 		btnLogin.addMouseListener(new MouseAdapter() {
+			@SuppressWarnings("deprecation")
 			public void mouseClicked(MouseEvent arg0) {
-				MenuPrincipal.main(null);
 				setVisible(false);
 				
-				Select existeUsr = new Select();
-				
-			/*	if(Select.class() == 1) {
-					
-					JOptionPane.showMessageDialog(null, "Bienvenido\n Has ingresado " + "satisfactoriamente al sistema", "Mensaje de bienvenida", JOptionPane.INFORMATION_MESSAGE);
-					
+				Select modSql = new Select();
+				Usuarios mod = new Usuarios();
+
+				if (textUsuario.getText().equals("") || textPasswd.getText().equals("")) {
+					JOptionPane.showMessageDialog(null, "Hay campos vacios, debe completar todos los campos");
+					LogIn.main(null);
 				} else {
-					
-					JOptionPane.showMessageDialog(null, "Acceso denegado:\n" + "Por favor ingrese un usuario y/o contraseña válidos", "Acceso denegado", JOptionPane.ERROR_MESSAGE);
-					
-				} */
+					if (modSql.existeUsuario(textUsuario.getText())) {
+
+						mod.setNombre(textUsuario.getText());
+						mod.setContraseña(textPasswd.getText());
+						
+
+						if (modSql.seleccionUsr(mod)) {
+							JOptionPane.showMessageDialog(null, "Bienvenido a Cafeteria el Maestro");
+							MenuPrincipal.main(null);
+						} else {
+							JOptionPane.showMessageDialog(null, "Error no tienes un usuario creado");
+							LogIn.main(null);
+						}
+					}
+				}
 			}
 		});
+
 		btnLogin.setBounds(75, 227, 142, 23);
 		panel.add(btnLogin);
 

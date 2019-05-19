@@ -12,15 +12,15 @@ public class Update extends Conexion {
 		PreparedStatement ps = null;
 		Connection con = getConexion();
 
-		String sql = "UPDATE productos SET nombre = ?, precio = ?, tipo_Producto = ? WHERE id_Producto = ?";
+		String sql = "UPDATE productos SET precio=? WHERE id_Producto=?";
 
 		try {
 			ps = con.prepareStatement(sql);
 
 			ps.setInt(1, pro.getId_Producto());
-			ps.setString(2, pro.getNombre());
-			ps.setDouble(3, pro.getPrecio());
-			ps.setString(4, pro.getTipo_Producto());
+			//ps.setString(1, pro.getNombre());
+			ps.setDouble(2, pro.getPrecio());
+			//ps.setString(4, pro.getTipo_Producto());
 			ps.executeUpdate();
 			
 			return true;

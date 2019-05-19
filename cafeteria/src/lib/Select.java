@@ -13,14 +13,13 @@ import cafeteria.LogIn;
 
 public class Select extends Conexion {
 
-	public int seleccionUsr(Usuarios usr) {
+	public boolean seleccionUsr(Usuarios usr) {
 
 		String usuario = LogIn.textUsuario.getText();
 		String pass = String.valueOf(LogIn.textPasswd.getPassword());
 
-		int resultado = 0;
-
-		String sql = "SELECT nombre = "+usuario+" AND contraseña = md5('"+pass+"') FROM usuarios";
+		String sql = "SELECT * FROM usuarios WHERE nombre = '" + usuario + "' AND contraseña = md5('" + pass + "')"; 
+				
 
 		Connection con = null;
 
@@ -31,8 +30,8 @@ public class Select extends Conexion {
 			java.sql.ResultSet rs = ps.executeQuery(sql);
 
 			if (rs.next()) {
-
-				resultado = 1;
+				
+				return true;
 			}
 
 		} catch (SQLException e) {
@@ -51,6 +50,33 @@ public class Select extends Conexion {
 			}
 		}
 		
-		return resultado;
+		return false;
+	}
+	
+	public boolean existeUsuario(String usr) {
+
+		PreparedStatement ps = null;
+		java.sql.ResultSet rs = null;
+		Connection con = getConexion();
+
+		String sql = "SELECT count(id) FROM usuarios WHERE nombre = ?";
+
+		try {
+			ps = con.prepareStatement(sql);
+
+			ps.setString(1, usr);
+			rs = ps.executeQuery();
+
+			if (rs.next()) {
+				return true;
+			}
+
+			return true;
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return false;
+		}
 	}
 }

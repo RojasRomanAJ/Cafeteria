@@ -123,7 +123,16 @@ public class MenuPrincipal extends JFrame {
 		JButton btnSalir = new JButton("Salir");
 		btnSalir.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				LogIn.main(null);
+				
+				int respuesta = JOptionPane.showConfirmDialog(null, "¿Estas seguro de que deseas salir?", "Cafeteria el Maestro", JOptionPane.YES_NO_OPTION);
+				if (respuesta == JOptionPane.YES_OPTION) {
+					
+					LogIn.main(null);
+				} else {
+					
+					MenuPrincipal.main(null);
+					
+				}
 				setVisible(false);
 			}
 		});
