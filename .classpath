@@ -3,5 +3,10 @@
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="src" path="cafeteria/src"/>
 	<classpathentry exported="true" kind="lib" path="C:/Users/Rojas/Downloads/mysql-connector-java-5.0.8-bin.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Rojas/Downloads/poi/poi-4.1.0/poi-4.1.0.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Rojas/Downloads/poi/poi-4.1.0/poi-ooxml-4.1.0.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Rojas/Downloads/poi/poi-4.1.0/poi-ooxml-schemas-4.1.0.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Rojas/Downloads/poi/poi-4.1.0/lib/commons-collections4-4.3.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Rojas/Downloads/poi/poi-4.1.0/ooxml-lib/xmlbeans-3.1.0.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
