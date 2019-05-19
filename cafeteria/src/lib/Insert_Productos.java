@@ -241,11 +241,12 @@ public class Insert_Productos extends JFrame {
 		textId.setColumns(10);
 		
 		jtProductos = new JTable();
+		jtProductos.setAutoResizeMode(JTable.AUTO_RESIZE_ALL_COLUMNS);
 		jtProductos.setBounds(10, 11, 412, 346);
 		panel.add(jtProductos);
 		
 		setVisible(true);
-		setResizable(true);
+		setResizable(false);
 		
 		try {
 			
