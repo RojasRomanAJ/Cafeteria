@@ -1,21 +1,18 @@
 package cafeteria;
 
+import lib.Select;
 import lib.Usuarios;
 
 import java.awt.*;
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 
-import lib.Conexion;
-import lib.Insert;
-import lib.Productos;
-import lib.Select;
-import lib.Usuarios;
-
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.sql.SQLException;
 import java.util.logging.Logger;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class LogIn extends JFrame {
 
@@ -100,9 +97,10 @@ public class LogIn extends JFrame {
 		panel.add(textPasswd);
 
 		JButton btnLogin = new JButton("Entrar");
-		btnLogin.addMouseListener(new MouseAdapter() {
-			public void mouseClicked(MouseEvent arg0) {
-				setVisible(false);
+		btnLogin.addActionListener(new ActionListener() {
+			@SuppressWarnings("deprecation")
+			public void actionPerformed(ActionEvent e) {
+			setVisible(true);
 				
 				/*
 				 * En esta parte creamos Select y Producto

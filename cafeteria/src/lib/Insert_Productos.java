@@ -11,17 +11,12 @@ import javax.swing.JScrollPane;
 import javax.swing.border.EmptyBorder;
 import javax.swing.table.DefaultTableModel;
 
-import com.mysql.jdbc.Connection;
-import com.mysql.jdbc.PreparedStatement;
-import com.mysql.jdbc.ResultSet;
-
 import cafeteria.MenuPrincipal;
 
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.JButton;
-import javax.swing.JComboBox;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.sql.ResultSetMetaData;
@@ -164,11 +159,6 @@ public class Insert_Productos extends JFrame {
 					}
 				}
 			}
-			
-			/*
-			 * Con esta funcion ponemos a 0 los JTexfield
-			 * 
-			 */
 			private void limpiar() {
 				textNombre.setText("");
 				textPrecio.setText("");

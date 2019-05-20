@@ -82,6 +82,7 @@ public class Delete extends Conexion {
 		} catch (SQLException e) {
 			e.printStackTrace();
 			return false;
+			
 		}
 	}
 }

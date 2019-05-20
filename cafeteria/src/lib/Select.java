@@ -7,8 +7,6 @@ import java.sql.Statement;
 
 import javax.swing.JOptionPane;
 
-import com.mysql.jdbc.ResultSet;
-
 import cafeteria.LogIn;
 
 public class Select extends Conexion {

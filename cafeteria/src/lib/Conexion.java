@@ -1,14 +1,13 @@
 package lib;
 
 import java.sql.*;
-import javax.swing.JOptionPane;
 
 public class Conexion {
 
 	private final String base = "cafeteria";
 	private final String user = "root";
 	private final String password = "manolo";
-	private final String url = "jdbc:mysql://localhost:3306/" + base;
+	private final String url = "jdbc:mysql://localhost:3308/" + base;
 	private Connection con = null;
 	private PreparedStatement ps = null;
 
@@ -30,9 +29,9 @@ public class Conexion {
 		return con;
 	}
 
-	public com.mysql.jdbc.PreparedStatement prepareStatement(String sql) {
+	/*public com.mysql.jdbc.PreparedStatement prepareStatement(String sql) {
 		// TODO Auto-generated method stub
 		return null;
-	}
+	}*/
 
 }

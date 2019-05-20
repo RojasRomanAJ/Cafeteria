@@ -133,7 +133,7 @@ public class MenuPrincipal extends JFrame {
 					MenuPrincipal.main(null);
 					
 				}
-				setVisible(false);
+				setVisible(true);
 			}
 		});
 		btnSalir.setBounds(391, 355, 136, 23);
