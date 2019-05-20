@@ -94,20 +94,48 @@ public class Registro extends JFrame {
 		JButton btnGuardar = new JButton("Guardar");
 		btnGuardar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				
+				/*
+				 * En esta parte creamos Insert y Usuarios
+				 * 
+				 */
 				Insert modSql = new Insert();
 				Usuarios mod = new Usuarios();
-
+				
+				/*
+				 * En esta parte pasamos los passwordField a tipo String para luego compararlos entre ellos
+				 * y poder verificar que son las mismas contraseñas
+				 * 
+				 */
 				String pass = new String(passwordField.getPassword());
 				String passCon = new String(passwordField_1.getPassword());
-
+				
+				/*
+				 * Comparamos que en los JTextField no hayan campos vacíos, en el caso de que hayan campos vacíos
+				 * muestra un error.
+				 * 
+				 */
 				if (txtNombre.getText().equals("") || pass.equals("") || passCon.equals("")
 						|| txtApellidos.getText().equals("") || txtDireccion.getText().equals("")
 						|| txtCorreo.getText().equals("")) {
 					JOptionPane.showMessageDialog(null, "Hay campos vacios, debe completar todos los campos");
 				} else {
-
+					
+					/*
+					 * En esta parte comparamos que las 2 contraseñas introducidas son las mismas en caso de que no sean
+					 * las mismas mostrará un error
+					 * 
+					 */
 					if (pass.equals(passCon)) {
-
+						
+						/*
+						 * Aqui recogemos los datos insertados en los JTextField y los guardamos en el Producto que creamos
+						 * con anteriodad: Usuarios mod = new Usuarios();.
+						 * 
+						 * A parte crearemos una variable tipo String para poder guardar la contraseña que hemos introducido en
+						 * el JTextField
+						 * 
+						 */
 						if (modSql.existeUsuario(txtNombre.getText())) {
 
 							String nuevoPass = OcultarPass.md5(pass);
@@ -118,7 +146,12 @@ public class Registro extends JFrame {
 							mod.setCorreo_electronico(txtCorreo.getText());
 							mod.setContraseña(nuevoPass);
 							mod.setId_tipo(1);
-
+							
+							/*
+							 * En esta parte comparamos los datos que hemos introducido en los JTextField con nuestra BBDD
+							 * en caso de que este todo correcto se ejecutaria la sentencia INSERT
+							 * 
+							 */
 							if (modSql.registrar(mod)) {
 								JOptionPane.showMessageDialog(null, "Registro guardado");
 								limpiar();
@@ -133,7 +166,11 @@ public class Registro extends JFrame {
 					}
 				}
 			}
-
+			
+			/*
+			 * Con esta funcion ponemos a 0 los JTexfield
+			 * 
+			 */
 			private void limpiar() {
 				txtNombre.setText("");
 				txtApellidos.setText("");

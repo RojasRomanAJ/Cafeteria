@@ -46,7 +46,6 @@ public class LogIn extends JFrame {
 	 */
 	public LogIn() {
 		setAlwaysOnTop(true);
-		// setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\macmini\\Downloads\\Screenshot_2019-04-03-16-46-23-282_com.instagram.android.png"));
 		setTitle("Cafeteria el Maestro");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 475, 322);
@@ -102,23 +101,41 @@ public class LogIn extends JFrame {
 
 		JButton btnLogin = new JButton("Entrar");
 		btnLogin.addMouseListener(new MouseAdapter() {
-			@SuppressWarnings("deprecation")
 			public void mouseClicked(MouseEvent arg0) {
 				setVisible(false);
 				
+				/*
+				 * En esta parte creamos Select y Producto
+				 * 
+				 */
 				Select modSql = new Select();
 				Usuarios mod = new Usuarios();
-
+				
+				/*
+				 * Comparamos que en los JTextField no hayan campos vacíos, en el caso de que hayan campos vacíos
+				 * muestra un error.
+				 * 
+				 */
 				if (textUsuario.getText().equals("") || textPasswd.getText().equals("")) {
 					JOptionPane.showMessageDialog(null, "Hay campos vacios, debe completar todos los campos");
 					LogIn.main(null);
 				} else {
+					
+					/*
+					 * Aqui recogemos los datos insertados en los JTextField y los guardamos en el Producto que creamos
+					 * con anteriodad: Usuarios mod = new Usuarios();
+					 * 
+					 */
 					if (modSql.existeUsuario(textUsuario.getText())) {
 
 						mod.setNombre(textUsuario.getText());
 						mod.setContraseña(textPasswd.getText());
 						
-
+						/*
+						 * En esta parte comparamos los datos que hemos introducido en los JTextField con nuestra BBDD
+						 * en caso de que este todo correcto se ejecutaria la sentencia SELECT
+						 * 
+						 */
 						if (modSql.seleccionUsr(mod)) {
 							JOptionPane.showMessageDialog(null, "Bienvenido a Cafeteria el Maestro");
 							MenuPrincipal.main(null);
