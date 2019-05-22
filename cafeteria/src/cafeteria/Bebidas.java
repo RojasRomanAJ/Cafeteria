@@ -119,7 +119,7 @@ try {
 			Conexion con = new Conexion();
 			java.sql.Connection conn = con.getConexion();
 			
-			String sql = "SELECT * FROM productos";
+			String sql = "SELECT * FROM productos WHERE Tipo_Producto = Bebida";
 			ps = conn.prepareStatement(sql);
 			rs = ps.executeQuery();
 			
