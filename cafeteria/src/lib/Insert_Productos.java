@@ -11,9 +11,9 @@ import javax.swing.JScrollPane;
 import javax.swing.border.EmptyBorder;
 import javax.swing.table.DefaultTableModel;
 
-import com.mysql.jdbc.Connection;
-import com.mysql.jdbc.PreparedStatement;
-import com.mysql.jdbc.ResultSet;
+//import com.mysql.jdbc.Connection;
+//import com.mysql.jdbc.PreparedStatement;
+//import com.mysql.jdbc.ResultSet;
 
 import cafeteria.MenuPrincipal;
 
